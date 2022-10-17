@@ -1,1 +1,15 @@
-# Sentiment_Analysis_Project
+# Amazon Fine Food Products Review Sentiment Analysis
+
+Dataset is downloaded from https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
+
+## Objective
+Aim to analyze sentiment of Amazon food products reviews by performing text mining and NLP techniques. Analyzing the reviews is expected to generate feedback from customers on Amazon’s food products regarding food quality, efficiency in delivery, ease of use of Amazon.com, service, and customer support. These important matters that could potentially help Amazon determine customer satisfaction in general to evaluate their online service performance.
+
+## Method
+With taking advantage of sentiment analysis and topic modeling on our massive reviews, there are two main methods using in this project. For the sentiment analysis, VADER Lexicon sentiment analysis (Valence Aware Dictionary and Sentiment Reasoner will perform well on our dataset. The VADERlexicon based sentiment analysis maps both sentiment polarity and intensity (valence) on a scale from -4 to +4, clearly showing the polarity and intensity of each review throughout the four sentiment scores: positive, compound, neutral and negative. The compound scores are essential since the score is a sum of sentiment scores across all words in the text, normalized to be between -1 to 1, the values below -0.05 stand for negative polarity, values above 0.05 correspond to positive polarity, the values between -0.05 and 0.05 are considered neutral. On the other hand, the score magnitude speaks about sentiment intensity. In addition to the ability of collecting sentiment polarity and intensity, VADER lexicon also has advantages in dealing with our social media reviews. Since the majority of reviews online are not formal, VADER lexicon is sensitive to slang like “giggly”, emoticons, acronyms and initialisms such as “laughing out loud”, punctuation, case (for example, great vs. GREAT), syntax and modifiers and the use of “but”. 
+
+One thing need to worry about is about is the accuracy of the VADER lexicon, fortunately there is ‘review score’ as one column in the dataset, which can be concerned as the actual polarity, If the accuracy of the task is not satisfied enough, fine-tune the experiment can be applied by adjusting the threshold parameter.
+
+By performing topic modeling on our dataset, it's able to figure out what topics are contained and it is easy to check if the topic model results make sense and see all the results that the topic model produces using Latent Dirichlet Allocation function. The LDA model enables us to find the top N most frequent words for each topic and the weight (relative frequency) of the word in a topic. Next step is to visualize the topics: topic size, frequency of words in a topic and so on through pyLDAvis, by ranking words in a topic by relevance, finally we can find the dominant topic and most frequent words in that topic. After that, comparing the coherence, perplexity and log likelihood scores of models with different topic numbers will decide a proper number of topics.
+
+Then the sentiment score obtained from the previous step, creating three subsets of ‘pos’, ‘neu’ and ‘neg’ can analyze on the subsets like text classification, topic modeling, Naive Bayes which will achieve the objective.
